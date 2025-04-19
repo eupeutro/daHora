@@ -16,7 +16,7 @@ async function login () {
 
         if (response.ok) {
             alert("Login realizado com sucesso!");
-            window.location.href = "../main/indes.html"; // redirecionar após login
+            window.location.href = "../../views/home/home.html"; // redirecionar após login
         } else {
             alert(`Erro: ${resultado.error}`);
         }

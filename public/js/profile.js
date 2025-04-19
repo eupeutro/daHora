@@ -19,6 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Erro ao buscar dados do usuario:', error);
         alert('Erro ao carregar perfil. Realize login novamente.');
-        window.location.href = '../login/index.html'
+        window.location.href = '../../views/login/login.html'
     }
 })

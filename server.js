@@ -6,11 +6,6 @@ const cookieParser = require('cookie-parser');
 const loginRoutes = require('./routes/loginRoutes')
 const app = express();
 
-// CORS configurado corretamente para uso com credenciais
-app.use(cors({
-    origin: 'http://127.0.0.1:5500', // origem do seu front-end
-    credentials: true // permite envio de cookies
-}));
 
 app.use(cookieParser());
 
@@ -20,9 +15,18 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 2 // 2 horas
+        secure: false,
+        maxAge: 1000 * 60 * 60 * 2, // 2 horas
+        sameSite: 'lax'
     }
 }));
+// CORS configurado corretamente para uso com credenciais
+app.use(cors({
+    origin: 'http://127.0.0.1:5500', // origem do seu front-end
+    credentials: true,  // permite envio de cookies
+    methods: ['GET','POST', 'PUT', 'DELETE']
+}));
+
 
 // Middleware para parsear JSON
 app.use(express.json());

@@ -1,4 +1,5 @@
 function autenticar(req, res, next){
+ 
     if (req.session.usuario){
         next();
     }

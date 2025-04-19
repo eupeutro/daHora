@@ -24,6 +24,7 @@ exports.login = async (req, res) => {
         nivel_acesso: usuario.nivel_acesso
     };
 
+
     res.json({ message: 'Login realizado com sucesso', usuario: req.session.usuario})
 }   catch (error){
     console.error('Erro no login:', error);

@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://localhost:3000/usuarios/perfil', {
+        const response = await fetch('http://127.0.0.1:3000/usuarios/perfil', {
             method: 'GET',
             credentials: 'include'
         });
-
         if (!response.ok) {
             throw new Error("Erro ao carregar dados do perfil")
         }
-        const usuario = await response.json();
+        const data = await response.json();
+
+        console.log('Resposta da requisição de perfil:', data);
+
+
+        const usuario = data.usuario
 
         //preenchendo elementos com dados recebidos
 
